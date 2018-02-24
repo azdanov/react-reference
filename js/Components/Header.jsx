@@ -1,22 +1,26 @@
 // @flow
 
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { setSearchTerm } from '../State/creators';
+
 type Props = {
-  handleSearchTermChange?: Function,
-  searchTerm?: string,
+  showSearch?: boolean,
+  handleChange: Function,
+  searchTerm: string,
 };
 
 const Header = (props: Props) => {
   let controls;
-  if (props.handleSearchTermChange) {
+  if (props.showSearch) {
     controls = (
       <input
         type="text"
         placeholder="Search"
         value={props.searchTerm}
-        onChange={props.handleSearchTermChange}
+        onChange={props.handleChange}
       />
     );
   } else {
@@ -37,8 +41,14 @@ const Header = (props: Props) => {
 };
 
 Header.defaultProps = {
-  handleSearchTermChange: function noop() {},
-  searchTerm: '',
+  showSearch: false,
 };
 
-export default Header;
+const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleChange(event) {
+    dispatch(setSearchTerm(event.currentTarget.value));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,34 +1,39 @@
 // @flow
 
+import { render, shallow } from 'enzyme';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 
-import Search from '../Components/Search';
-import ShowCard from '../Components/ShowCard';
 import preload from '../../data.json';
+import { Search } from '../Components/Search';
+import ShowCard from '../Components/ShowCard';
+import store from '../State/store';
 
 const { shows } = preload;
 
 describe('Search', () => {
   test('it should render correctly', () => {
-    const component = shallow(<Search shows={shows} />);
+    const component = shallow(<Search shows={shows} searchTerm="" />);
 
     expect(component).toMatchSnapshot();
   });
 
   test('it should render correct amount of shows', () => {
-    const component = shallow(<Search shows={shows} />);
+    const component = shallow(<Search shows={shows} searchTerm="" />);
 
     expect(component.find(ShowCard)).toHaveLength(shows.length);
   });
 
   test('it should render correct amount of shows based on search', () => {
     const searchWord = 'house';
-    const component = shallow(<Search shows={shows} />);
-
-    component
-      .find('input')
-      .simulate('change', { currentTarget: { value: searchWord } });
+    const component = render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Search shows={preload.shows} searchTerm={searchWord} />
+        </MemoryRouter>
+      </Provider>,
+    );
 
     const filteredShowCount = shows.filter(show =>
       `${show.title} ${show.description}`
@@ -36,14 +41,6 @@ describe('Search', () => {
         .includes(searchWord.toUpperCase()),
     ).length;
 
-    expect(component.find(ShowCard)).toHaveLength(filteredShowCount);
+    expect(component.find('.show-card')).toHaveLength(filteredShowCount);
   });
 });
-
-// Old experimental way
-// import renderer from 'react-test-renderer';
-// test('Search renders correctly', () => {
-//   const component = renderer.create(<Search />);
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });

@@ -7,4 +7,5 @@ export type Show = {
   poster: string,
   imdbID: string,
   trailer: string,
+  rating?: string,
 };
