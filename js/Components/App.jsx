@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable import/no-named-as-default */
 
 import React from 'react';
 import { hot } from 'react-hot-loader';
@@ -11,7 +12,7 @@ import type { Show } from '../Types/Show';
 import preload from '../../data.json';
 import store from '../State/store';
 import Landing from './Landing';
-import { Search } from './Search';
+import Search from './Search';
 import Details from './Details';
 import NoMatch from './NoMatch';
 

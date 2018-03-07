@@ -4,10 +4,12 @@ import { combineReducers } from 'redux';
 
 import type { Action } from './actions';
 
-import { SET_SEARCH_TERM, ADD_API_DATA } from './actions';
+import { SET_SEARCH_TERM, RESET_SEARCH_TERM, ADD_API_DATA } from './actions';
 
 const searchTerm = (state = '', action: Action) => {
   if (action.type === SET_SEARCH_TERM) {
+    return action.payload;
+  } else if (action.type === RESET_SEARCH_TERM) {
     return action.payload;
   }
   return state;
