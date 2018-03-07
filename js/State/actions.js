@@ -17,5 +17,5 @@ type ActionType<A: Actions, P> = {
 };
 
 export type Action =
-  | ActionType<SetSearchTermType, string>
+  | ActionType<SetSearchTermType | ResetSearchTermType, string>
   | ActionType<AddApiDataType, Show>;

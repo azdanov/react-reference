@@ -1,9 +1,9 @@
 {
   "presets": [
-    "react",
-    "flow",
+    "@babel/preset-react",
+    "@babel/preset-flow",
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
           "browsers": "last 2 versions"
@@ -13,10 +13,15 @@
       }
     ]
   ],
-  "plugins": ["transform-class-properties", "react-hot-loader/babel"],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "react-hot-loader/babel"
+  ],
   "env": {
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
     }
   }
 }
