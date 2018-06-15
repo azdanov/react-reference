@@ -40,10 +40,7 @@ class Details extends React.Component<Props, State> {
           <h1>{title}</h1>
           <h2>({year})</h2>
           {rating}
-          <img
-            src={`/public/img/posters/${poster}`}
-            alt={`Poster for ${title}`}
-          />
+          <img src={`/public/img/posters/${poster}`} alt={`Poster for ${title}`} />
           <p>{description}</p>
         </section>
         <div>
@@ -84,4 +81,7 @@ const mapDispatchToProps = (dispatch: Function, ownProps) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Details);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Details);

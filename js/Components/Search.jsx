@@ -23,9 +23,7 @@ export const Search = (props: { searchTerm: string, shows: Array<Show> }) => (
   <div className="search">
     <Header showSearch />
     <div>
-      {props.shows
-        .filter(filterBySearchTerm(props.searchTerm))
-        .map(createShowCard)}
+      {props.shows.filter(filterBySearchTerm(props.searchTerm)).map(createShowCard)}
     </div>
   </div>
 );

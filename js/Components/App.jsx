@@ -17,9 +17,7 @@ import Details from './Details';
 import NoMatch from './NoMatch';
 
 function selectShowById(props: { match: Match }) {
-  return preload.shows.find(
-    (show: Show) => props.match.params.id === show.imdbID,
-  );
+  return preload.shows.find((show: Show) => props.match.params.id === show.imdbID);
 }
 
 const App = () => (
@@ -34,9 +32,7 @@ const App = () => (
           />
           <Route
             path="/details/:id"
-            component={props => (
-              <Details show={selectShowById(props)} {...props} />
-            )}
+            component={props => <Details show={selectShowById(props)} {...props} />}
           />
           <Route component={NoMatch} />
         </Switch>

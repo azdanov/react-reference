@@ -56,6 +56,5 @@ const NoMatch = ({ location }: Props) => (
 export default NoMatch;
 
 NoMatch.propTypes = {
-  location: PropTypes.shape({ pathname: PropTypes.string.isRequired })
-    .isRequired,
+  location: PropTypes.shape({ pathname: PropTypes.string.isRequired }).isRequired,
 };

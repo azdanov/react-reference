@@ -81,7 +81,9 @@ declare module 'babel-preset-env/lib/targets-parser.js' {
   declare module.exports: $Exports<'babel-preset-env/lib/targets-parser'>;
 }
 declare module 'babel-preset-env/lib/transform-polyfill-require-plugin.js' {
-  declare module.exports: $Exports<'babel-preset-env/lib/transform-polyfill-require-plugin'>;
+  declare module.exports: $Exports<
+    'babel-preset-env/lib/transform-polyfill-require-plugin',
+  >;
 }
 declare module 'babel-preset-env/lib/utils.js' {
   declare module.exports: $Exports<'babel-preset-env/lib/utils'>;

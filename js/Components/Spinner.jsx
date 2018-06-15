@@ -17,8 +17,6 @@ const Image = styled.img`
   background-image: url(/public/img/loading.png);
 `;
 
-const Spinner = () => (
-  <Image src="/public/img/loading.png" alt="loading indicator" />
-);
+const Spinner = () => <Image src="/public/img/loading.png" alt="loading indicator" />;
 
 export default Spinner;

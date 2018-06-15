@@ -23,10 +23,7 @@ class ShowCard extends React.Component<Props, State> {
     return (
       <Link to={`/details/${imdbID}`}>
         <div className="show-card">
-          <img
-            alt={`${title} Show Poster`}
-            src={`/public/img/posters/${poster}`}
-          />
+          <img alt={`${title} Show Poster`} src={`/public/img/posters/${poster}`} />
           <div>
             <h3>{title}</h3>
             <h4>({year})</h4>

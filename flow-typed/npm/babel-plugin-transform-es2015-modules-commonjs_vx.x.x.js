@@ -28,5 +28,7 @@ declare module 'babel-plugin-transform-es2015-modules-commonjs/lib/index' {
 
 // Filename aliases
 declare module 'babel-plugin-transform-es2015-modules-commonjs/lib/index.js' {
-  declare module.exports: $Exports<'babel-plugin-transform-es2015-modules-commonjs/lib/index'>;
+  declare module.exports: $Exports<
+    'babel-plugin-transform-es2015-modules-commonjs/lib/index',
+  >;
 }

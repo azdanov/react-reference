@@ -25,11 +25,17 @@
     "prettier/prettier": [
       "error",
       {
+        "printWidth": 89,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": true,
         "singleQuote": true,
-        "trailingComma": "all"
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false
       }
     ],
-    "jsx-a11y/anchor-is-valid": [ // Fix will be in the next version after airbnb-config@16.1.0
+    "jsx-a11y/anchor-is-valid": [
       "error",
       {
         "components": ["Link"],
